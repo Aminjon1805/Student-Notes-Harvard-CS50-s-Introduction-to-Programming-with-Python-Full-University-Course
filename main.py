@@ -696,3 +696,149 @@ for _ in range(n):
     print("meow")
 
 '''
+###################################################################
+# Funcitons for asking how many times to meow
+'''
+def meow():
+    times = int(input("Type times: "))
+    while times < 0:
+        times = int(input("Please type positive integer: "))
+
+    for _ in range(times): # print("meow\n") * times, end="") 
+        print("meow!!!") 
+
+        
+meow()
+'''
+###################################################################
+
+'''
+# Another type
+
+def meow(times):
+    while times < 0:
+        print("Please type positive integer")
+        break
+    
+    for _ in range(times):
+        print("meow")
+
+meow(10)
+
+# We can also change our while to if, you can try by yourself
+
+'''
+
+###################################################################
+
+# You know all this code is hard to understand let's make it clear
+
+# First we will split our question into parts:
+'''
+    1) Get number from user and check whether it is positive or negative => funciton for getting and checking correctness
+
+    2) Second fucntion will use that number to print meow
+
+    3) Third fucntion is combintion of this two functions
+
+# This is needed because as prorammer you are responsible make your code easier to understand for your coworkers and also it will make your job easier for debugging.
+
+'''
+
+# Result
+'''
+
+# Main fucntion
+def main():
+    number = get_number()
+    meow(number)
+
+
+# Get number from user and check
+def get_number():
+    while True:
+        n = int(input("How many times: "))
+        if n > 0:
+            break
+
+    return n
+
+
+# Meow n times
+def meow(n):
+    for _ in range(n):
+        print("meow!!!")
+
+
+# Call function
+main()
+
+'''
+###################################################################
+
+'''
+# List is colection of elements which is ordered by index, which starts from zero. [elem_1, elem_2, ...., elem_n] - this way creating list.
+
+list_of_std = ["Harry", "Zuko", "Avatar"]
+#                |        |        |
+#                0        1        2   They are ordered this way
+
+
+
+# If you want to call any of them you will use indexes
+print(list_of_std[0]) # I called Harry
+print(list_of_std[1]) # Zuko
+print(list_of_std[2]) # Avatar
+
+'''
+
+###################################################################
+
+'''
+# We can call them by for loop
+list_of_std = ["Harry", "Zuko", "Avatar"]
+
+for std in list_of_std: # we use range() only for integers
+    print(std)
+
+'''
+
+###################################################################
+
+'''
+# len(name_of_list or string) gonna show lenghth of it
+
+print(len([1, 2, 3, 4])) # length of this list is 4
+print(len("smth")) # length of this string is 4
+
+'''
+
+###################################################################
+
+'''
+# Experimanting with for loop and lists
+
+list_of_std = ["Harry", "Zuko", "Avatar"]
+
+for i in range(len(list_of_std)):
+    print(i + 1, list_of_std[i], sep=") ")
+
+# Output
+
+# 1) Harry
+# 2) Zuko
+# 3) Avatar
+
+'''
+###################################################################
+
+# In for loop - range(a, b, c) take three value
+# a - begin with, by default it is 0. We can change it
+# b - end point , where our loop gonna finish. Typed by user
+# c - is jumping , by default it is 1. We can change it
+
+###################################################################
+
+# Dictionary - key and value. Denoted by {}
+
+# Suppose you must manage who is in which house in 
