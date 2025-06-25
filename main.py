@@ -839,6 +839,200 @@ for i in range(len(list_of_std)):
 
 ###################################################################
 
+'''
 # Dictionary - key and value. Denoted by {}
 
 # Suppose you must manage who is in which house in 
+
+# {key: value}
+students = {
+    "Hermione": "Gryffindor",
+    "Harry": "Gryffindor",
+    "Ron": "Gryffindor",
+    "Draco": "Slytherin"
+}
+
+print(students["Draco"]) # from dictionry called student give my value of the key called "Draco"
+
+print(students["Harry"]) # from dictionry called student give my value of the key called "Harry"
+
+'''
+###################################################################
+
+"""
+students = {
+    "Hermione": "Gryffindor",
+    "Harry": "Gryffindor",
+    "Ron": "Gryffindor",
+    "Draco": "Slytherin"
+}
+
+'''
+# How to get all keys
+for student in students:
+    print(student)
+
+'''
+
+'''
+# How to get all values
+for student in students:
+    print(students[student])
+'''
+
+
+'''
+# How to get key and value
+for student in students:
+    print(student, students[student], sep=' => ')
+    
+'''
+
+'''
+# Better way to get key and value
+for k, v in students.items(): # Items() help to get key and value
+    print(k, v, sep=" => ")
+
+'''
+"""
+
+###################################################################
+
+"""
+# What happens when we put method items() in dict
+
+students = {
+    "Hermione": "Gryffindor",
+    "Harry": "Gryffindor",
+    "Ron": "Gryffindor",
+    "Draco": "Slytherin"
+}
+
+
+print(students.items())
+# result: dict_items([('Hermione', 'Gryffindor'), ('Harry', 'Gryffindor'), ('Ron', 'Gryffindor'), ('Draco', 'Slytherin')])
+
+
+# So python will create list in which each key and value in tuple in the list.
+"""
+
+###################################################################
+
+# None - absence of the value
+
+###################################################################
+
+"""
+# If except of key and value you also have another value, how to organize them ???
+
+students = [
+    {"name": "Harry", "house": "Gryffindor", "patronus": "Otter"},
+    {"name": "Hermione", "house": "Gryffindor", "patronus":"Stug"},
+    {"name": "Ron", "house": "Gryffindor", "patronus": "Smth"},
+    {"name": "Draco", "house": "Slytherin", "patronus": "Evil"}
+]
+
+'''
+print(students[0]["name"]) # Harry
+print(students[1]["name"]) # Hermione
+print(students[2]["name"]) # Ron
+print(students[3]["name"]) # Draco
+
+'''
+
+'''
+for student in students:
+    print(student["name"], student["house"], student["patronus"],sep=', ')
+    
+'''
+
+"""
+
+###################################################################
+
+# Creating squares through loop
+'''
+def main():
+    num = user_num()
+    make_square(num)
+
+def make_square(n):
+    for _ in range(n):
+        print("#" * n)
+
+def user_num():
+    number = int(input("Type number: "))
+    return number
+
+main()
+
+'''
+
+'''
+# Creating squares through loop inside loop
+
+def main():
+    user_size = get_size()
+    print_square(user_size)
+
+def print_square(size):
+    for i in range(size):
+        for j in range(size):
+            print("#", end=" ")
+        print()
+
+
+def get_size():
+    number = int(input("Size: "))
+
+    return number
+
+main()
+
+'''
+##################################################################
+
+# try and except used to hendle your error
+
+# For example in this portion of code it cause an error:
+# number = int(input("Typy number: "))
+# print(number)
+# Error: 
+
+
+
+'''
+# In order to handle it as we said we use try except:
+
+try:
+    number = int(input("Integer: "))
+    print(number)
+
+except ValueError:
+    print("Please type integer!")
+
+
+'''
+
+##################################################################
+
+# SyntaxError cannot be solved through try except mathod. It is like you didn't close breakets. You fix it in code by filling needed things
+
+# What about other errors like runtime error, this errors occure when user type smth that is not allowed which can broke you code, then you must handle every situations that can broke whole system.
+
+##################################################################
+
+'''
+# In order to catch specific error error you must include name of the error, but if you want to catch any of them that can happen you can just write except without name of error.
+
+try:
+    number = int(input("Integer: "))
+    print(number)
+
+except :
+    print("Please type integer!")
+
+'''
+
+##################################################################
+
