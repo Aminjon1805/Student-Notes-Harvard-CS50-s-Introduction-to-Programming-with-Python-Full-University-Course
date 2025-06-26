@@ -299,26 +299,7 @@ print(z)
 '''
 ##################################################################
 
-'''
-# FLoat - real numbers like 1.002 
 
-print(str("1")) # result will be 1 => type is string
-print(float("1")) # result will be 1.0 => type is float
-print(int("1")) # result is 1 => type is integer
-
-
-
-# x and y choose
-x = float(input("x : "))
-y = float(input("y : "))
-
-# calculating summation
-z = x + y
-
-# show result
-print(z)
-
-'''
 ##################################################################
 
 '''
@@ -1035,4 +1016,730 @@ except :
 '''
 
 ##################################################################
+
+'''
+# Lets move print(number) beyound the try axcept
+try:
+    number = int(input("Integer: "))
+    
+except:
+    print("Please type integer!")
+
+print(number)
+
+# After doing it we will see (NameError: name 'number' is not defined) which says that i can not find number even there is number. Because when error happens it do not give any value to number it goes to except block also do not give any value to our numbers that why our code do not know what is number.
+
+'''
+
+'''
+# How to solve put else
+
+try:
+    number = int(input("Integer: "))
+    
+except:
+    print("Please type integer!")
+
+else:
+    print(number)
+
+# If there gonna be no error our code go directly to else block.
+
+'''
+
+##################################################################
+
+'''
+# Let's check for being true again and again
+
+while True:
+    try:
+        number = int(input("Type number: "))
+
+    except:
+        print("Please type number!")
+    
+    else:
+        print("number", number, sep=" is ")
+        break
+
+'''
+##################################################################
+
+'''
+# pass - if you want to ignore smth you can pass it by pass
+
+while True:
+    try:
+        number = int(input("Type number: "))
+        print(number)
+        break
+    except:
+        pass
+
+'''
+
+##################################################################
+
+# Create funciton for the asking number
+
+'''
+def get_int():
+    while True:
+        try:
+            return int(input("Type number: "))
+        except:
+            pass
+
+print(get_int())
+
+'''
+
+##################################################################
+
+# Prompt - where I will start tommorow. (4h 49m)
+
+# When we use we do not need input function in order to ask user
+
+'''
+def main():
+    x = get_int("What is x? ")
+    print(f"x is {x}")
+
+
+def get_int(prompt):
+    while True:
+        try:
+            return int(input(prompt))
+        except:
+            pass
+
+main()
+
+'''
+##################################################################
+
+# Labraries, modules - used in order to reuse code 
+
+# When you install python interpreter you automatically will get some modules and in order to use them you can import them by import. You can not get them like print() or other stuff, you can get them by importing.
+
+'''
+# Example coint flip
+import random # I import random from default files in python
+
+choice = random.choice(["heads", "tails"])
+
+print(choice)
+
+'''
+
+##################################################################
+
+# Check how many times does it appear
+'''
+import random
+
+head_count = 0
+tail_count = 0
+
+counter = 0
+limit = 2000
+
+while counter <= limit:
+    if random.choice(["head", "tail"]) == "tail":
+        tail_count += 1
+    
+    else:
+        head_count += 1
+    
+    counter += 1
+    
+
+print(f"Head count = {head_count} = {head_count/ limit}",
+       f"Tail count = {tail_count} = {tail_count/ limit}",head_count / tail_count ,sep="\n")
+
+'''
+
+##################################################################
+
+# When I write import random, I import everything from that module. If i want to import specific thing i will use from module import smth
+
+
+'''
+# It is same as we have done before
+
+from random import choice
+
+print(choice([1, 2, 3]))
+
+'''
+
+##################################################################
+
+# random.randint(a, b) - between a and b inclusive
+
+# Give you random number from 1 to 10 inclusive
+
+'''
+import random
+
+number = random.randint(1, 10)
+
+print(number)
+
+'''
+
+##################################################################
+
+# random.shuffle(x) - randomize the order of the collection of elements
+
+'''
+import random
+
+cards = ["jack", "queen", "king"]
+
+random.shuffle(cards)
+
+print(cards)
+
+'''
+
+##################################################################
+
+# STATISTIC MODULE IN THE PYTHON
+ 
+
+'''
+import statistics
+
+print(statistics.mean([1, 2, 3, 4, 5])) # mean() function for mean
+
+'''
+
+##################################################################
+
+# Command-line argument is external input you give a program at the moment you run it, right in the command line (terminal).
+
+# like you write in terminal: py main.py, but you will add some features from you like: py main.py Bruce => It may use it and will return hello, Bruce depend on your code
+
+# New module will help us to add smth more in the command line this module called - sys.
+
+# From sys we will use function argv - standart argumnet vector. It wil will turn command line into list whih every word is element
+
+'''
+import sys
+
+print("Hello", sys.argv[1], sep=", ") # in terminal we can write python main.py Aminjon => Result: Hello, Aminjon
+
+'''
+
+##################################################################
+
+# sys.exit("message if you want") will exit the program immediately without going to other lines after itself.
+
+'''
+import sys
+
+if len(sys.argv) < 2:
+    sys.exit("Too many arguments")
+elif len(sys.argv) > 2:
+    sys.exit("Too many arguments")
+
+print('Hello, my name is', sys.argv[1])
+
+'''
+
+##################################################################
+
+'''
+
+# Working with list - slice
+
+my_list = [1, 2, 3, 4, 5]
+
+# my_list[from:to]
+print(my_list[1:]) # [1:] means from index 1 till end
+print(my_list[1:5]) # this is same as [1:]
+print(my_list[0:5:2]) # [a:b:c] - c means jumping
+print(my_list[-1]) # negative index start from end, [-1] last elem
+print(my_list[::-1]) # give us reverse version of the list
+
+'''
+##################################################################
+
+# Packages - A package is a folder (directory) that contains modules (Python files) and a special __init__.py file.
+
+# PyPI(Python Package Index) - you can look at python packages
+
+# cowsay - package in python
+
+# How to download packages:
+#                         in terminal: pip install package_name
+
+# Ex: pip install cowsay - Gonna give you cowsay library
+
+"""
+
+import cowsay # New package we download, now we using it
+import sys  # We already know it
+
+if len(sys.argv) == 2:
+    cowsay.cow("Hello, " + sys.argv[1])
+
+
+"""
+# Result
+'''
+| Hello, Aminjon |
+  ==============
+              \
+               \
+                 ^__^
+                 (oo)\_______
+                 (__)\       )\/\
+                     ||----w |
+                     ||     ||
+'''
+
+##################################################################
+
+"""
+import cowsay
+import sys
+
+if len(sys.argv) == 2:
+    cowsay.trex("Hello, " + sys.argv[1])
+
+"""
+##################################################################
+
+# API's - Application Programming Interface allows one software (program) to talk to another software/system.
+
+# requests - is library used to make web request or internet using python code
+
+# JSON - JSON stands for JavaScript Object Notation.It’s a lightweight, readable format for storing and exchanging data, especially between programs over the internet.
+
+'''
+import json
+import requests
+import sys
+
+if len(sys.argv) != 2:
+    sys.exit("Exit")
+
+# We will get our web search, but in JSON form 
+json_response = requests.get("https://itunes.apple.com/search?entity=song&limit=1&term=" + sys.argv[1])
+
+# We will use .json() function in puthon to turn JSON into Python
+python_response = json_response.json()
+
+# Let's print it
+print(python_response)
+
+#Let's make it more readable through json library
+clear_response = json.dumps(python_response, indent=2)
+
+# Show result
+print(clear_response)
+
+'''
+
+############################################################
+
+# Give TrackNames of the artist
+
+
+'''
+import json
+import requests
+import sys
+
+if len(sys.argv) != 2:
+    sys.exit("ERROR!")
+
+
+response = requests.get("https://itunes.apple.com/search?entity=song&limit=50&term=" + sys.argv[1])
+
+
+clear_response = response.json()
+
+counter = 0
+
+for i in clear_response["results"]:
+    if i["artistName"].lower() == sys.argv[1].lower():
+        counter += 1
+        print(counter, i["trackName"], sep=") ")
+
+'''
+
+############################################################
+
+# Now in new version we gonna remove repeated once
+
+'''
+import json
+import requests
+import sys
+
+if len(sys.argv) != 2:
+    sys.exit("ERROR!")
+
+
+response = requests.get("https://itunes.apple.com/search?entity=song&limit=50&term=" + sys.argv[1])
+
+
+clear_response = response.json()
+
+counter = 0
+empty_list = []
+
+for i in clear_response["results"]:
+    if i["artistName"].lower() == sys.argv[1].lower():
+        if i["artistName"] not in empty_list:
+            empty_list.append(i['trackName'])
+
+for i in empty_list:
+    counter += 1
+    print(counter, i, sep=") ")
+
+'''
+
+############################################################
+
+# Creating yours python modules and packages
+
+'''
+def main():
+    hello("World")
+    goodbye("World")
+
+
+def hello(name):
+    print(f"hello, {name}")
+
+def goodbye(name):
+    print(f"Goodbye, {name}")
+ 
+main()
+
+'''
+
+
+############################################################
+
+# After importing some functions like hello, goodbye or main from our main.py to another python file and then after running our code we will see that function main() which is called in the main.py will be running even in amother python file, how to solve it???
+
+'''
+def main():
+    hello("World")
+    goodbye("World")
+
+
+def hello(name):
+    print(f"hello, {name}")
+
+def goodbye(name):
+    print(f"Goodbye, {name}")
+
+
+# Our main.py will be runned if its name will be called
+if __name__ == "__main__": # This syntax is constant
+    main()
+
+'''
+
+# So in order your python file to run when it is called you must in include that if statement.
+
+############################################################
+
+'''
+# UNIT TESTS - testing your code by coding
+
+def main():
+    x = int(input("x: "))
+    print("x^2", square(x), sep=" = ")
+
+def square(number):
+    return number * number
+
+
+if __name__ == "__main__":
+    main()
+
+'''
+
+############################################################
+
+# In reality you can use pytest in order to make your job easier
+
+# pytest - you can dowload and use it.
+
+# unit - test which we used - is helpful for unit, i mean for fucntions.
+
+# Let's use pytest
+
+# Look documentation for more information
+
+
+'''
+def main():
+    x = int(input("x: "))
+    print("x^2", square(x), sep=" = ")
+
+def square(number):
+    return number * number
+
+
+if __name__ == "__main__":
+    main()
+
+'''
+
+############################################################
+
+# Let's create hello name programm and test it with pytest
+
+'''
+def main():
+    name = input("Name: ")
+    print(hello(name))
+
+
+def hello(smb_name = "world"):
+    return f"Hello, {smb_name}"
+
+
+if __name__ == "__main__":
+    main()
+
+'''
+############################################################
+
+# How to make directory through terminal?
+# Type in terminal: mkdir forlder_name, example: mkdir test
+
+# How to create python file inside directory(folder):        code folder_name/file_name.py
+
+# Now let's create test folder which inside all our test fucntions in python file.
+
+# Now we gonna put all our test inside that file.
+# code test/test_code.py => will create test_code.py inside test folder
+
+# By creaeting __init__.py file inside directory(folder) we say to the python that this folder is package: code test/__init__.py
+
+############################################################
+
+# ========================== NEW ==========================#
+
+'''
+# Working with files
+
+# Before talking about files let's go with lists
+
+# by using .append(smth) we will add new element to our list
+
+list = [] # This is empty list
+list.append("Bob") # Now we add Bob to our list
+list.append("Ali") # will be added as last element
+list.append("Sayvali") # will be added as last element
+
+# As you see they are not sorted alphabeticaly
+print(list) # ['Bob', 'Ali', 'Sayvali']
+
+# We use function sorted(list_elem) to get sorted list
+sorted_list = sorted(list)
+print(sorted_list) # ['Ali', 'Bob', 'Sayvali']
+
+'''
+
+############################################################
+
+# Programm that will save names to a list
+'''
+names = []
+
+for _ in range(3):
+    names.append(input("Name: "))
+
+for name in names:
+    print(f"Hello, {name}")
+
+'''
+# Te problem with is problem is that if I run this code again all names will be disapear.
+
+# Would it be nice to save informatoin, that is why we need file i/o.
+
+# How to save name in file in order to save them again and again?
+
+############################################################
+
+# we will use open - read documentation for more info
+
+'''
+name = input("Name: ")
+
+# open("name_of_file.txt", "operation")
+file = open("name.txt", "w") # "w" is operation means write
+
+# We use write(...) to write smth inside the file
+file.write(name)
+
+# close() function closes file and save it
+file.close()
+
+'''
+
+# After running the code check it by: code name.txt
+
+# However, there is mistake. If we run our code sacond time and write name we will see that previous name was vanished. 
+
+# Why???
+
+# Reason behind is "w" - it not only means to write, but also to recreate the file. So, every time you running code you overwrite your file's text.
+
+
+# How to solve ?
+############################################################
+
+# We will use append - "a" as operation of open() function
+
+'''
+name = input("Name: ")
+
+file = open("name.txt", "a")
+
+file.write(f"{name}")
+
+file.close()
+
+'''
+
+# It worked, but there is one error - file add everything in one line. We can solve it by putting "\n" backslash n.
+
+'''
+name = input("Name: ")
+
+file = open("name.txt", "a")
+
+file.write(f"\n{name}")
+
+file.close()
+
+'''
+
+
+############################################################
+
+# We can forget to close our file which lead to info leak
+
+# How to solve it ?
+
+# You don't need to close file everytme if you will use - with. 
+
+# More pythonic is using with - means I want to open and close file.
+
+'''
+name = input("Name: ")
+
+with open("name.txt", "a") as file:
+    file.write(f"{name}\n")
+'''
+
+# how to read it and show it in terminal?
+
+'''
+with open("name.txt", "r") as file:
+    lines = file.readlines()
+
+for line in lines:
+    print("Hello", line, end="", sep=", ")
+
+'''
+
+# OR
+
+'''
+with open("name.txt", "r") as file:
+    lines = file.readlines()
+
+for line in lines:
+    print("Hello,", line.strip())
+
+'''
+
+# OR
+
+# Not recommended
+'''
+with open("name.txt", "r") as file:
+    for line in file:
+        print("hello,", line.strip())
+
+'''
+############################################################
+
+# in open("smth.txt", "r") - "r" is defualt, so you don't need to include it. Check documentation!!!
+
+'''
+names = []
+
+with open("name.txt") as file: 
+    for i in sorted(file):
+        names.append(i.rstrip())
+
+
+for name in sorted(names):
+    print(f"Hello, {name}")
+
+'''
+############################################################
+
+# sorted(iterable, reversed=True) - reverse the order
+
+'''
+names = []
+
+with open("name.txt") as file: 
+    for i in sorted(file, reverse=True):
+        names.append(i.rstrip())
+
+
+for name in sorted(names):
+    print(f"Hello, {name}")
+
+'''
+
+############################################################
+
+# .txt is used for typing some data, but if you want row and column format i mean structured better to use .csv
+
+# How to work with .csv ?
+
+# split("character") - split into pieces by charecter
+
+'''
+counter = 0
+
+with open("students.csv") as file:
+    for line in file:
+        counter += 1
+        row = line.rstrip().split(",")
+        print(f"{counter}) {row[0]} <=> {row[1]}")
+
+'''
+
+# More understandible
+"""
+counter = 0
+
+with open("students.csv") as file:
+    for line in file:
+        counter += 1
+        name, hounse = line.rstrip().split(",")
+        print(f"{counter}) {name} <=> {hounse}")
+
+"""
+
+
+############################################################
 
