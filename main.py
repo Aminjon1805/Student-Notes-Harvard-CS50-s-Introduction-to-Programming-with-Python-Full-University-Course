@@ -1743,3 +1743,82 @@ with open("students.csv") as file:
 
 ############################################################
 
+# The only case we don't put () in fuction when we assign variable as function. Ex:
+
+"""
+def hello(name):
+    return f"Hello, {name}"
+
+x = hello # Now x is hello function
+y = hello("smb") # Now y is return value of function
+
+print(x("smb"))  # Hello, smb
+print(hello("smb"))  # Hello, smb
+
+"""
+############################################################
+
+# Using dictionary to sort them by anything
+'''
+students = []
+
+with open("students.csv") as file:
+    for line in file:
+        name, house = line.strip().split(",")
+        
+        student = {"name": name, "house": house}
+        students.append(student)
+
+# sorted(list, key = fucntion, reversed = False)
+
+def get_name(student):
+    return student["name"]
+
+for student in sorted(students, key=get_name):
+    print(f"{student['name']} is in {student['house']}")
+
+'''
+
+############################################################
+
+# lambda function - no name function. one-line, no-name function used for simple tasks, often passed directly as arguments.
+
+# We give argument and instantly we use it in lambda
+
+# lambda arguments: expression
+
+'''
+square = lambda x, y: x*y
+
+print(square(2, 4)) # result is 4
+
+# OR
+
+print((lambda x, y: x * y)(2, 4))
+
+'''
+############################################################
+
+# We can change get_name function with lambda function
+
+'''
+students = []
+
+with open("students.csv") as file:
+    for line in file:
+        name, house = line.strip().split(",")
+        
+        student = {"name": name, "house": house}
+        students.append(student)
+
+
+for student in sorted(students, key=lambda student: student["name"]):
+    print(f"{student['name']} is in {student['house']}")
+
+'''
+
+############################################################
+
+# 8h lecture notes from cs50 python.
+# Now it is end
+# I start Data Structure & Algorithms join me in new repo.
